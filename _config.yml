@@ -10,12 +10,13 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-# theme                  : "minimal-mistakes-jekyll"
-remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-
+# 테마 설정에 대한 부분입니다. 기본 설정을 유지하였습니다.
+theme                  : "minimal-mistakes-jekyll"
+# remote_theme             : "mmistakes/minimal-mistakes"
+minimal_mistakes_skin    : "dark" 
+                           #"air", "contrast", "aqua", "dirt", "neon", "mint", "plum", "sunrise"
 # Site Settings
-locale                   : "en-US"
+locale                   : "ko-KR"
 title                    : "Peter blog"
 title_separator          : "-"
 name                     : "Peter"
@@ -27,9 +28,11 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
-  provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
+  provider               : "disqus"
+                            # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
   disqus:
-    shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : imreplay-blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+                            # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -59,9 +62,12 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
-search_provider          : # lunr (default), algolia, google
+
+#사이트내 검색 설정에 대한 부분입니다.  
+search                   : true
+search_full_content      : true
+search_provider          : algolia 
+                           # lunr (default), algolia, google -> 추가 설정 필요. 
 algolia:
   application_id         : # YOUR_APPLICATION_ID
   index_name             : # YOUR_INDEX_NAME
