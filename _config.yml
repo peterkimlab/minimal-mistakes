@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "aqua" # "air", "default", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Title"
+title                    : "Peter blog"
 title_separator          : "-"
 name                     : "Peter"
 description              : "This is a peter's blog which have android informations."
