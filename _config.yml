@@ -293,7 +293,7 @@ defaults:
       comments: # true
       share: true
       related: true
-      >>>>>>>>>>>>>>>>>>> 여기서부터 추가 됨
+  #    >>>>>>>>>>>>>>>>>>> 여기서부터 추가 됨
   # _pages 부분입니다.
   - scope:
       path: "_pages"
