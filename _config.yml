@@ -104,7 +104,7 @@ author:
   name             : "Your Name"
   avatar           : "/assets/images/peter.jpg" 
                      # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
+  bio              : "profile description!"
   location         : "Somewhere"
   email            :
   links:
