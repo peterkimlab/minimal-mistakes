@@ -28,6 +28,24 @@ private FragmentTransaction transaction = null;
     transaction.commit();
   }
 ```
+[activity_main.xml]
+```
+<android.support.design.widget.CoordinatorLayout
+  <FrameLayout
+    android:id="@+id/flContainerHome"
+    ...
+  />
+
+  <android.support.design.bottomappbar.BottomAppBar
+    android:id="@+id/bottom_appbar"
+    ...
+  />
+  <android.support.design.widget.FloatingActionButton
+    android:id="@+id/fabs"
+    ...
+  />
+</android.support.design.widget.CoordinatorLayout>
+```
 ___
 
 # Output
