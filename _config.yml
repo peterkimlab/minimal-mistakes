@@ -108,7 +108,7 @@ analytics:
 # Site Author
 author:
   name             : "Peter"
-  avatar           : "/assets/images/peter.jpg" 
+  avatar           : "/assets/images/peter1.jpg" 
                      # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "여러가지에 관심 많은 개발자"
   location         : "South Korea"
