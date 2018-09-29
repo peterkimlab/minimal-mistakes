@@ -31,4 +31,7 @@ private FragmentTransaction transaction = null;
 ___
 
 # Output
-![Main 화면]({{ "/assets/images/bottomappbar_main.png" | absolute_url }})
+![Main 화면]({{ "/assets/images/bottomappbar.jpg" | absolute_url }})
+
+# source
+[GitHub](https://github.com/peterkimlab/BottomAppBar)
