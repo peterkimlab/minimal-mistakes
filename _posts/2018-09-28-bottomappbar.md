@@ -17,7 +17,7 @@ MainActivity.java는 `Activity` 로 생성하고, 화면 전환하는 View는 `F
 ```
 private FragmentTransaction transaction = null;
 
-@Override
+  @Override
   protected void onCreate(Bundle savedInstanceState) {
     setContentView(R.layout.activity_main);
 
@@ -27,7 +27,37 @@ private FragmentTransaction transaction = null;
     transaction.replace(R.id.flContainerHome, HomeFragment.newInstance());
     transaction.commit();
   }
+
+  public void detachFab() {
+        bottomAppBar.setFabAttached(false);
+    }
+
+    public void moveToDetails() {
+        bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_END);
+        attachFab();
+    }
+
+    public void returnToHome() {
+        bottomAppBar.setFabAlignmentMode(BottomAppBar.FAB_ALIGNMENT_MODE_CENTER);
+        attachFab();
+        if (bottomAppBar.getFabAlignmentMode() == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
+            fabs.setImageResource(R.drawable.baseline_add_white_24);
+        }
+    }
+
+    public void attachFab() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bottomAppBar.setFabAttached(true);
+            }
+        }, 150);
+    }
 ```
+___
+MainActivity에는 FrameLayout을 배치 하였고, 이곳에서 HomeFragment로 transaction 시킨다.
+또한 차례로 BottomAppBar와 FloatingActionButton를 배치한다.
+
 [activity_main.xml]
 ```
 <android.support.design.widget.CoordinatorLayout
@@ -47,9 +77,12 @@ private FragmentTransaction transaction = null;
 </android.support.design.widget.CoordinatorLayout>
 ```
 ___
-
+build.gradle(Module:app)에는 BottomAppBar 사용을 위해, 아래의 내용을 implementation 한다.
+```
+implementation 'com.android.support:design:28.0.0-alpha1'
+```
 # Output
-![Main 화면]({{ "/assets/images/bottomappbar.jpg" | absolute_url }})
+![Main 화면]({{ "/assets/images/Bottomappbar.jpg" | absolute_url }})
 
 # source
 [GitHub](https://github.com/peterkimlab/BottomAppBar)
