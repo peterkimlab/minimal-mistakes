@@ -82,7 +82,9 @@ build.gradle(Module:app)에는 BottomAppBar 사용을 위해, 아래의 내용�
 implementation 'com.android.support:design:28.0.0-alpha1'
 ```
 # Output
-![Main 화면]({{ "/assets/images/Bottomappbar.jpg" | absolute_url }})
+참조 된 소스를 활용하시면, 아래와 같은 뷰 구성이 가능 합니다.
+![Main 화면]({{ "/assets/images/bottomappbar.jpg" | absolute_url }})
 
 # source
+생략 된 내용이 있으니, 아래의 전체 소스를 참조하세요.
 [GitHub](https://github.com/peterkimlab/BottomAppBar)
