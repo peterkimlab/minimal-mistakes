@@ -10,8 +10,8 @@ categories: android
 특징으로는 FAB(FloatingActionButton)과 함께 사용하며, FAB는 다음 화면으로 전환시, Back Button으로 사용 할 수 있습니다. 애니메이션이 나름 ios 같으며, 하단에 Bar가 있으므로, Bottom Sheets으로 Option Menu or Navigation Views를 대체 합니다.
 
 # Usage
-MainActivity.java는 **Activity**로 생성하고, 화면 전환하는 View는 **Fragment**로 생성하였다.
-일반적으로 appbar는 **AndroidManifest**에서 선언하는데, 이렇게 되면 BottomAppBar의 fab 애니메이션 적용이 안되서 인지, 선언이 되지 않았다. 결론은 BottomAppBar는 화면 전환 시, BottomAppBar를 detach 하고, fab를 이동 시킨 후, 다시 BottomAppBar를 붙혀야 하는 과정을 거친다.
+MainActivity.java는 Activity로 생성하고, **화면 전환하는 View는 Fragment**로 생성하였다.
+일반적으로 appbar는 AndroidManifest에서 선언하는데, 이렇게 되면 BottomAppBar의 fab 애니메이션 적용이 안되서 인지, 선언이 되지 않았다. **결론은 BottomAppBar는 화면 전환 시, BottomAppBar를 detach 하고, fab를 이동 시킨 후, 다시 BottomAppBar를 붙혀야 하는 과정을 거친다.**
 
 [MainActivity.java]
 ```java
