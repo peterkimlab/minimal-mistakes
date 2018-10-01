@@ -15,20 +15,66 @@ MainActivity.java는 Activity로 생성하고, **화면 전환하는 View는 Fra
 
 [MainActivity.java]
 ```java
-private FragmentTransaction transaction = null;
+package com.exam.bottomappbar;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    setContentView(R.layout.activity_main);
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.bottomappbar.BottomAppBar;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+import com.exam.bottomappbar.Fragment.HomeFragment;
+import com.exam.bottomappbar.Fragment.PlusButtonFragment;
 
-    fabs = (FloatingActionButton) findViewById(R.id.fabs);
+public class MainActivity extends AppCompatActivity {
 
-    transaction = getSupportFragmentManager().beginTransaction();
-    transaction.replace(R.id.flContainerHome, HomeFragment.newInstance());
-    transaction.commit();
-  }
+    private Handler handler = new Handler();
+    private FragmentTransaction transaction = null;
+    private FloatingActionButton fabs = null;
+    private BottomAppBar bottomAppBar;
 
-  public void detachFab() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        fabs = (FloatingActionButton) findViewById(R.id.fabs);
+
+        if (savedInstanceState == null) {
+            transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.flContainerHome, HomeFragment.newInstance());
+            transaction.commit();
+        }
+
+        fabs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (bottomAppBar.getFabAlignmentMode() == BottomAppBar.FAB_ALIGNMENT_MODE_CENTER) {
+                    fabs.setImageResource(R.drawable.baseline_reply_white_24);
+                    transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.addToBackStack(HomeFragment.class.getSimpleName());
+                    transaction.add(R.id.flContainerHome, PlusButtonFragment.newInstance());
+                    transaction.commit();
+                    detachFab();
+                    moveToDetails();
+                } else {
+                    fabs.setImageResource(R.drawable.baseline_add_white_24);
+                    detachFab();
+                    returnToHome();
+                    onBackPressed();
+                }
+            }
+        });
+        bottomAppBar = findViewById(R.id.bottom_appbar);
+        setSupportActionBar(bottomAppBar);
+        bottomAppBar.replaceMenu(R.menu.my_menu);
+    }
+
+    public void detachFab() {
         bottomAppBar.setFabAttached(false);
     }
 
@@ -53,6 +99,36 @@ private FragmentTransaction transaction = null;
             }
         }, 150);
     }
+
+    @Override
+    public void onBackPressed() {
+        detachFab();
+        returnToHome();
+        super.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.next_btn:
+                Toast.makeText(this, "next_btn", Toast.LENGTH_SHORT).show();
+                //bottomSheetDialog.show(getSupportFragmentManager(),"bottomSheet");
+                return true;
+            case R.id.action_settings:
+                Toast.makeText(this, "action_settings", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+}
 ```
 ***
 MainActivity에는 FrameLayout을 배치 하였고, 이곳에서 HomeFragment로 transaction 시킨다.
@@ -60,21 +136,41 @@ MainActivity에는 FrameLayout을 배치 하였고, 이곳에서 HomeFragment로
 
 [activity_main.xml]
 ```java
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-  <FrameLayout
-    android:id="@+id/flContainerHome"
-    ...
-  />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.exam.bottomappbar.MainActivity">
 
-  <android.support.design.bottomappbar.BottomAppBar
-    android:id="@+id/bottom_appbar"
-    ...
-  />
-  <android.support.design.widget.FloatingActionButton
-    android:id="@+id/fabs"
-    ...
-  />
+    <FrameLayout
+        android:id="@+id/flContainerHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:fabAttached="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:fabCradleVerticalOffset="12dp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_anchor="@+id/bottom_appbar"/>
+
 </android.support.design.widget.CoordinatorLayout>
+
 ```
 ___
 build.gradle(Module:app)에는 BottomAppBar 사용을 위해, 아래의 내용을 implementation 한다.
