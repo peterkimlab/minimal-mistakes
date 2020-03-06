@@ -136,7 +136,7 @@ MainActivity에서 아래와 같이 MovieParcelable, MovieSerializable으로 각
 
     startActivity(intent);
 ```
-![Main 화면]({ "/assets/images/parcelabe_main.png" | absolute_url })
+![Main 화면]({{ "/assets/images/parcelabe_main.png" | absolute_url }})
 ---
 DisplayActivity에서는 intent로 전달 받은 object data를 각각 getParcelableExtra, getSerializableExtra로 get 하여, 값을 확인 할 수 있습니다.
 
@@ -154,7 +154,7 @@ DisplayActivity에서는 intent로 전달 받은 object data를 각각 getParcel
     nameSerializable.setText("제목 : " + serializable.getName());
     rateSerializable.setText("평점 : " + serializable.getRate());
 ```
-![Display 화면]( "/assets/images/parcelabe_display.png" | absolute_url )
+![Display 화면]({{ "/assets/images/parcelabe_display.png" | absolute_url }})
 ___
 # Reference
 <https://android.jlelse.eu/parcelable-vs-serializable-6a2556d51538>
