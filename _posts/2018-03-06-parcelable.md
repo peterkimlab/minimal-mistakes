@@ -122,7 +122,7 @@ ___
 
 # Output
 
-MainActivity에서 아래와 같이 MovieParcelable, MovieSerializable으로 각각 직렬화 한 object data를 intent에 putExtra 에 담아, DisplayActivity를 실행 시켰습니다.
+MainActivity에서 MovieParcelable, MovieSerializable으로 각각 직렬화 한 object data를 intent에 putExtra 에 담아, DisplayActivity를 실행 시켰습니다. 아래 화면의 "SEND OBJECT" 버튼을 누르면, intent는 object data을 담은 상태로 DisplayActivity를 실행하게 됩니다.
 
 [MainActivity.java]
 ```java
@@ -158,11 +158,11 @@ DisplayActivity에서는 intent로 전달 받은 object data를 각각 getParcel
 ```
 ![Display 화면]({{ "/assets/images/parcelabe_display.png" | absolute_url }}){: .align-center}
 ___
+# Reference
 * <https://android.jlelse.eu/parcelable-vs-serializable-6a2556d51538>
 * <http://www.developerphil.com/parcelable-vs-serializable/>
 
 ___
 # source
-전체 소스 : [GitHub](https://github.com/peterkimlab/AndroidBagic)
-
-branch : parcelable_serializable
+* 전체 소스 : [GitHub](https://github.com/peterkimlab/AndroidBagic)
+* branch : parcelable_serializable
