@@ -11,6 +11,7 @@ Android에서 **activity 간에 데이터를 전달**하기 위해서는 전달�
 
 # Usage
 >### Parcelable
+
 [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html)은 자바 표준 interface가 아니고, **Android SDK**에 포함 되어있습니다.
 아래가 예제 클래스이며, reflection을 사용하지 않기위해서, Override 메서드가 포함되었고,Parcelable.Creator 을 생성해주어야 합니다. Serializable에 비해 빠른 성능을 내기 위해서입니다. 약 [10배](http://www.developerphil.com/parcelable-vs-serializable/) 빠른 성능을 냅니다.  
 
