@@ -1,5 +1,5 @@
 ---
-title: "BottomAppBar 자바로 구현하기"
+title: "Parcelable과 Serializable 비교"
 date: 2018-03-05
 categories: android
 ---
@@ -9,13 +9,11 @@ Android에서 **activity 간에 데이터를 전달**하기 위해서는 전달�
 
 >원문 링크
 <https://android.jlelse.eu/parcelable-vs-serializable-6a2556d51538>
-___
+
 # Usage
 >### Parcelable
 [Parcelable](https://developer.android.com/reference/android/os/Parcelable.html)은 자바 표준 interface가 아니고, **Android SDK**에 포함 되어있습니다.
 아래가 예제 클래스이며, reflection을 사용하지 않기위해서, Override 메서드가 포함되었고,Parcelable.Creator 을 생성해주어야 합니다. Serializable에 비해 빠른 성능을 내기 위해서입니다. 약 [10배](http://www.developerphil.com/parcelable-vs-serializable/) 빠른 성능을 냅니다.  
-
-
 
 [MovieParcelable.java]
 ```java
@@ -80,7 +78,7 @@ public class MovieParcelable implements Parcelable {
     };
 }
 ```
-***
+
 
 >### Serializable
 
@@ -126,12 +124,43 @@ ___
 
 ![Main 화면]({{ "/assets/images/parcelabe_main.png" | absolute_url }})
 
-![Main 화면]({{ "/assets/images/parcelabe_display.png" | absolute_url }})
+MainActivity에서 아래와 같이 MovieParcelable, MovieSerializable으로 각각 직렬화 한 object data를 intent에 putExtra 에 담아, DisplayActivity를 실행 시켰습니다.
 
+[MainActivity.java]
+```java
+    Intent intent = new Intent(MainActivity.this, DisplayActivity.class);
+
+    MovieParcelable parcelable = new MovieParcelable("하우스오브카드", 9.5);
+    intent.putExtra("ParcelableObject", parcelable);
+
+    MovieSerializable serializable = new MovieSerializable("워킹데드", 9);
+    intent.putExtra("SerializableObject", serializable);
+
+    startActivity(intent);
+```
+![Display 화면]({{ "/assets/images/parcelabe_display.png" | absolute_url }})
+
+DisplayActivity에서는 intent로 전달 받은 object data를 각각 getParcelableExtra, getSerializableExtra로 get 하여, 값을 확인 할 수 있습니다.
+
+[DisplayActivity.java]
+```java
+    Intent intent = getIntent();
+
+    MovieParcelable parcelable = intent.getParcelableExtra("ParcelableObject");
+
+    nameParcelable.setText("제목 : " + parcelable.getName());
+    rateParcelable.setText("평점 : " + parcelable.getRate());
+
+    MovieSerializable serializable = (MovieSerializable) intent.getSerializableExtra("SerializableObject");
+
+    nameSerializable.setText("제목 : " + serializable.getName());
+    rateSerializable.setText("평점 : " + serializable.getRate());
+```
+___
 # Reference
 https://android.jlelse.eu/parcelable-vs-serializable-6a2556d51538
 http://www.developerphil.com/parcelable-vs-serializable/
-
-
+___
 # source
-전체 소스 : [GitHub](https://github.com/peterkimlab/BottomAppBar)
+전체 소스 : [GitHub](https://github.com/peterkimlab/AndroidBagic)
+branch : parcelable_serializable
