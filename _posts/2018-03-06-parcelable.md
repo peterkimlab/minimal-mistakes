@@ -157,12 +157,13 @@ DisplayActivity에서는 intent로 전달 받은 object data를 각각 getParcel
     rateSerializable.setText("평점 : " + serializable.getRate());
 ```
 ![Display 화면]({{ "/assets/images/parcelabe_display.png" | absolute_url }}){: .align-center}
+
 ___
 # Reference
 * <https://android.jlelse.eu/parcelable-vs-serializable-6a2556d51538>
 * <http://www.developerphil.com/parcelable-vs-serializable/>
 
 ___
-# source
+# Source
 * 전체 소스 : [GitHub](https://github.com/peterkimlab/AndroidBagic)
 * branch : parcelable_serializable
