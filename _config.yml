@@ -13,7 +13,7 @@
 # 테마 설정에 대한 부분입니다. 기본 설정을 유지하였습니다.
 theme                  : "minimal-mistakes-jekyll"
 # remote_theme             : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "contrast" 
+minimal_mistakes_skin    : "default"
                            #"air", "dark", "aqua", "dirt", "neon", "mint", "plum", "sunrise"
 # Site Settings
 locale                   : "ko-KR"
@@ -63,11 +63,11 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
-#사이트내 검색 설정에 대한 부분입니다.  
+#사이트내 검색 설정에 대한 부분입니다.
 search                   : true
 search_full_content      : true
-search_provider          : algolia 
-                           # lunr (default), algolia, google -> 추가 설정 필요. 
+search_provider          : algolia
+                           # lunr (default), algolia, google -> 추가 설정 필요.
 algolia:
   application_id         : # YOUR_APPLICATION_ID
   index_name             : # YOUR_INDEX_NAME
@@ -99,16 +99,16 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "custom"
   google:
-    tracking_id          :
+    tracking_id          : "UA-179584305-1"
     anonymize_ip         : # true, false (default)
 
 
 # Site Author
 author:
   name             : "Peter"
-  avatar           : "/assets/images/peter1.jpg" 
+  avatar           : "/assets/images/peter1.jpg"
                      # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "여러가지에 관심 많은 개발자"
   location         : "South Korea"
