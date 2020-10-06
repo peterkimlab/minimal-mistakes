@@ -2,6 +2,7 @@
 title: "Parcelable과 Serializable 비교"
 date: 2018-03-06
 categories: android
+permalink: /android/
 ---
 
 Android에서 **activity 간에 데이터를 전달**하기 위해서는 전달하는 쪽에서는 putExtra(), 받는쪽에서는 getExtra()를 사용합니다. 전달하고자하는 값이, 한 두개라면, 값을 각각 putExtra()에 넣어서 전달하면 됩니다. 그러나 **전달해야하는 값이 많아 진다면(e.g. Object 단위) 직렬화 작업**이 필요하게 됩니다. Parcelable 또는 Serializable을 사용 할 수 있는데요. **Parcelable 이 전달 시간에 있어, 더 짧기때문에 Parcelable을 사용**해야 합니다.

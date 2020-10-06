@@ -2,6 +2,7 @@
 title: "[Java]Simple Refactoring"
 date: 2018-11-25 14:26:28
 categories: Java
+permalink: /java/
 ---
 
 # Simple Refactoring(Test-driven Development)

@@ -2,6 +2,7 @@
 title: "[iOS] TableView(ListView in Android)"
 date: 2018-11-18 14:26:28
 categories: iOS
+permalink: /iOS/
 ---
 
 # TableView

@@ -2,6 +2,7 @@
 title: "Custom Dialog"
 date: 2018-04-01
 categories: android
+permalink: /android/
 ---
 
 Custom Dialog를 사용하는 방법을 알아보고자 합니다.
