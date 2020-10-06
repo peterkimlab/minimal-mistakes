@@ -1,6 +1,6 @@
 # main links
 main:
-  - title: "블로그 방문하기"
+  - title: "Post"
     url: https://peterkimlab.github.io/
-  - title: "About"
-    url: /about/
+  - title: "Android"
+    url: /android/
