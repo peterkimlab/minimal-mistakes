@@ -2,7 +2,6 @@
 title: "BottomAppBar 자바로 구현하기"
 date: 2018-09-28 14:26:28 -1400
 categories: android
-permalink: /android/
 ---
 
 # Bottom App Bars

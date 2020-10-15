@@ -2,7 +2,6 @@
 title: "Python 문법 정리_updating"
 date: 2020-10-03 14:26:28 -1400
 categories: python
-permalink: /python/
 ---
 # Python 기본 문법
 
