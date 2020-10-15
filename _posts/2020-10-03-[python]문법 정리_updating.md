@@ -7,7 +7,7 @@ categories: python
 
 Python의 기본 문법을 정리해 보겠습니다.
 
-# 슬라이싱
+>## 슬라이싱
 
 
 ```python
@@ -23,7 +23,8 @@ print("뒤 7자리 : " + jumin[7:]) # 1234567
 print("뒤 7자리 (뒤에서부터): " + jumin[-8:]) #-1234567
 ```
 ***
-# 문자열 처리 함수
+
+>## 문자열 처리 함수
 
 ```python
 python = "Python is Amazing"
@@ -48,7 +49,8 @@ print(python.find("Java"))
 print(python.count("n")) # 2
 ```
 ***
-# 문자열 포멧
+
+>## 문자열 포멧
 
 ```python
 # 정수형 처리
@@ -72,7 +74,9 @@ color = "빨간"
 print(f"나는 {age}살이며, {color}색을 좋아해요.")
 ```
 ***
-# 탈출 문자
+
+>## 탈출 문자
+
 ```python
 print("백문이 불여일견\n백견이 불여일타") # 백문이 불여일견
                                   # 백견이 불여일타
@@ -92,7 +96,9 @@ print("Redd\bApple") # RedApple
 print("Red\tApple")
 ```
 ***
-# 리스트 (list)
+
+>## 리스트 (list)
+
 ```python
 subway = ["유재석", "조세호", "박명수"]
 print(subway)
@@ -127,7 +133,9 @@ num_list.extend(mix_list)
 print(num_list)
 ```
 ***
-# 사전 (dictionary)
+
+>## 사전 (dictionary)
+
 ```python
 cabinet = {3:"유재석", 100:"김태호"}
 print(cabinet[3]) # 유재석
@@ -167,7 +175,9 @@ cabinet.clear()
 print(cabinet) # {}
 ```
 ***
-# 튜플 (tuple)
+
+>## 튜플 (tuple)
+
 * 리스트와 다르게 내용을 변경 및 추가 할 수 없다.
 * 속도가 리스트 보다 빠르다.
 * 변경 되지 않는 목록에 사용 한다.
@@ -181,7 +191,9 @@ print(menu[1]) # 치즈까스
 print(name, age, hobby)
 ```
 ***
-# 세트 (set)
+
+>## 세트 (set)
+
 * 중복이 되지 않음.
 * 순서가 없음.
 
@@ -213,7 +225,9 @@ java.remove("김태호")
 print(java) # {'유재석', '양세형'}
 ```
 ***
-# 자료구조의 변경
+
+>## 자료구조의 변경
+
 ```python
 # set 생성
 menu = {"커피", "우유", "주스"}
@@ -228,7 +242,9 @@ menu = tuple(menu)
 print(menu, type(menu)) # ('주스', '우유', '커피') <class 'tuple'>
 ```
 ***
-# if
+
+>## if
+
 ```python
 # input 메서드로 문자열 입력 받을 수 있음.
 
@@ -243,7 +259,9 @@ else:
     print("너무 추워요. 나가지 마세요.")
 ```
 ***
-# for
+
+>## for
+
 ```python
 # range를 이용한 for문 출력
 for waiting_no in range(1, 3):
@@ -257,7 +275,9 @@ for custom in startbucks:
                                                # 토르, 커피가 준비 됨.
 ```
 ***
-# while
+
+>## while
+
 ```python
 customer = "토르"
 index = 2
@@ -268,8 +288,11 @@ while index >= 1:
         print("커피 나옴.")
 ```
 ***
-# continue & break
+
+>## continue & break
+
 조건에 해당 되면, 아래 행을 실행 시키지 않는다.
+
 ```python
 absent = [2, 3]
 no_book = [4]
@@ -282,7 +305,9 @@ for student in range(1, 5):
     print("{}, 책을 읽어봐" .format(student)) # 1, 책을 읽어봐
 ```
 ***
-# 한줄 for 문
+
+>## 한줄 for 문
+
 ```python
 students = [1,2,3,4,5]
 print(students) # [1, 2, 3, 4, 5]
@@ -290,7 +315,9 @@ students = [i+100 for i in students]
 print(students) # [101, 102, 103, 104, 105]
 ```
 ***
-# 함수
+
+>## 함수
+
 def keyword로 함수 생성 한다.
 ```python
 def open_account():
@@ -299,7 +326,8 @@ def open_account():
 open_account()
 ```
 ***
-# 전달값과 반환값
+>## 전달값과 반환값
+
 ```python
 def deposit(balance, money):
     print("입금이 완료. 잔액은 {} 원입니다." .format(balance + money))
@@ -325,7 +353,9 @@ commission, balance = withdraw_night(balance, 300)
 print("수수료 {0} 원이며, 잔액은 {1} 원입니다." .format(commission, balance)) # 수수료 100 원이며, 잔액은 100 원입니다.
 ```
 ***
-# 기본값
+
+>## 기본값
+
 파라미터(parameter) 값에 =로 값을 정의하면, 기본값이 되며, 오버로딩 처리가 자동으로 된다.
 ```python
 def profile(name, age=17, main_lang="파이썬"):
@@ -335,7 +365,9 @@ profile("유재석", 20, "파이썬") # 이름: 유재석 나이: 20 주 언어:
 profile("김태호") # 이름: 김태호 나이: 17 주 언어: 파이썬
 ```
 ***
-# 키워드값
+
+>## 키워드값
+
 아규먼트(argument) 값에 =로 값을 정의하면, 오버로딩 규칙에 맞지 않아도, key 값으로 매칭 가능하다.
 ```python
 def profile(name, age, main_lang):
@@ -345,7 +377,9 @@ profile(name="유재석", main_lang="파이썬", age=20) # 유재석 20 파이�
 profile(main_lang="자바", age=25, name="김태호") # 김태호 25 자바
 ```
 ***
-# 가변인자
+
+>## 가변인자
+
 파라미터 특정 값에 *을 앞에 붙이면, 가변적으로 오버로딩 된다.
 ```python
 def profile(name, age, *language):
@@ -358,7 +392,8 @@ profile("유재석", 20, "python", "java", "C") # 유재석 20 파이썬
 profile("김태호", 25, "android")
 ```
 ***
-# 지역변수와 전역변수
+
+>## 지역변수와 전역변수
 
 ```python
 gun = 10
@@ -379,7 +414,8 @@ print("남은 총 : {0}" .format(gun)) # 8
 ```
 
 ***
-# 표준 입출력
+
+>## 표준 입출력
 
 ```python
 #sep keyword 사용하면 ,를 대체하여 값을 변환 한다.
@@ -406,7 +442,8 @@ print("입력 값은 " + answer + "입니다.") # <class 'str'>
 
 ```
 ***
-# 다양한 출력 포멧
+
+>## 다양한 출력 포멧
 
 ```python
 
