@@ -8,12 +8,15 @@ categories: Java
 
 아래의 기준으로 만들어진 코드를, 좀 더 잘 코딩 된 형식으로 변경(Refactoring) 해보려 합니다.
 
+## [문제]
+
 * 쉼표나 콜론을 구분자로 가지는 문자열을 입력 받음
 * 구분자를 기준으로 분리한 각 숫자의 합을 반환
 
-# Usage
+***
 
-최초로 작성 된 코드 예제 입니다.
+최초로 작성 된 코드 예제 입니다. 아래의 구현 사항을 좀 더 나은 코드로 변경 해 보겠습니다.
+
 ```java
 public class StringCalculator {
     public static int splitAndSum(String text) {
@@ -31,9 +34,10 @@ public class StringCalculator {
 }
 ```
 ***
-첫번째, 한 단계의 들여쓰기(indent)만 한다.
 
--> else 문 안에 있는 logic(sum)을 함수로 만들어, 가독성을 높힌다.
+># 첫번째, 한 단계의 들여쓰기(indent)만 한다.
+
+else 문 안에 있는 logic(sum)을 함수로 만들어, 가독성을 높힌다.
 
 
 ```java
@@ -59,9 +63,9 @@ public class StringCalculator {
 }
 ```
 ***
-두번째, else를 하지 않는다.
+># 두번째, else를 하지 않는다.
 
--> return을 사용하여, else를 하지 않도록 한다.
+return을 사용하여, else를 하지 않도록 한다.
 
 ```java
 public class StringCalculator {
@@ -83,9 +87,9 @@ public class StringCalculator {
 }
 ```
 ***
-세번째, 메서드가 한가지 일만 하게 한다.
+># 세번째, 메서드가 한가지 일만 하게 한다.
 
--> parseInt와 sum을 각 메서드에서 하게 분리 한다.
+parseInt와 sum을 각 메서드에서 하게 분리 한다.
 
 ```java
 public class StringCalculator {
@@ -117,7 +121,10 @@ public class StringCalculator {
 }
 ```
 ***
-네번째, 로컬 변수를 지양 한다.
+
+># 네번째, 로컬 변수를 지양 한다.
+
+전역 변수를 클래스 내에서 임의로 변경하면, 목적을 알 수 없다. 그러므로 전역 변수를 메서드의 인자 값으로 넘거 지역변수로 사용 한다.
 
 ```java
 public class StringCalculator {
@@ -147,9 +154,10 @@ public class StringCalculator {
 }
 ```
 ***
-다섯번째, Compose Method 패턴(추상화 정도가 같아야 함) 적용 한다.
 
--> null 체크 및 split 부분이 무엇을 의미하는지 추상화 한다.
+># 다섯번째, Compose Method 패턴(추상화 정도가 같아야 함) 적용 한다.
+
+null 체크 및 split 부분이 무엇을 의미하는지 추상화 한다.
 
 ```java
 public class StringCalculator {
