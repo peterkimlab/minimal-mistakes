@@ -4,8 +4,9 @@ date: 2020-10-24
 categories: python
 ---
 # 공공데이터 api 호출하기
-##### 비급여진료비정보조회서비스(건강보험심사평가원) api를 호출해 보고, xml로 온 response 값을 json으로 변환 해 보겠습니다.
+### 비급여진료비정보조회서비스(건강보험심사평가원) api를 호출해 보고, xml로 온 response 값을 json으로 변환 해 보겠습니다.
 
+공공데이터 오픈 API 링크 : https://www.data.go.kr/data/15001700/openapi.do
 
 ***
 
@@ -32,7 +33,7 @@ xml 형태의 응답이 왔습니다.
 
 ># xml를 dict 형태로 변환
 
-```
+```python
 import requests, xmltodict
 
 key = "Dc2%2BZbxPbCMQQj%2FNpy%2FQWJXUH7y4MbfPu9HEdJSdVJ3aOXXPQOWIpw0wNWpf%2FV8YAmRSzPhX4U0NodeC1X2%2B3A%3D%3D"
@@ -52,7 +53,7 @@ json 형태의 응답을 확인 할 수 있습니다. dict['response']['body']['
 
 ># dict를 json으로 변환
 
-```
+```python
 import requests, xmltodict, json
 
 key = "Dc2%2BZbxPbCMQQj%2FNpy%2FQWJXUH7y4MbfPu9HEdJSdVJ3aOXXPQOWIpw0wNWpf%2FV8YAmRSzPhX4U0NodeC1X2%2B3A%3D%3D"
@@ -72,7 +73,7 @@ json를 install 하고, dumps를 이용하여, json으로 변경 합니다.
 ```
 ># json에서 item 추출
 
-```
+```python
 import requests, xmltodict, json
 
 key = "Dc2%2BZbxPbCMQQj%2FNpy%2FQWJXUH7y4MbfPu9HEdJSdVJ3aOXXPQOWIpw0wNWpf%2FV8YAmRSzPhX4U0NodeC1X2%2B3A%3D%3D"
