@@ -103,6 +103,38 @@ PET진단료
 제증명수수료
 ```
 
+># json을 엑셀로 변환
+
+```python
+import requests, xmltodict, json
+import pandas as pd
+
+key = "Dc2%2BZbxPbCMQQj%2FNpy%2FQWJXUH7y4MbfPu9HEdJSdVJ3aOXXPQOWIpw0wNWpf%2FV8YAmRSzPhX4U0NodeC1X2%2B3A%3D%3D"
+url = "http://apis.data.go.kr/B551182/nonPaymentDamtInfoService/getNonPaymentItemCodeList?pageNo=1&numOfRows=10&ServiceKey={}".format(key)
+
+content = requests.get(url).content
+dict = xmltodict.parse(content)
+jsonString = json.dumps(dict['response']['body']['items'], ensure_ascii=False)
+jsonObj = json.loads(jsonString)
+
+for item in jsonObj['item']:
+    print(item)
+
+file = open("./nonPayment.json", "w+")
+file.write(json.dumps(jsonObj['item']))
+
+df = pd.read_json("./nonPayment.json")
+
+def save(df, filename):
+    writer = pd.ExcelWriter(filename)
+    df.to_excel(writer, "sheet1")
+    writer.save()
+
+save(df, "nonPayment.xlsx")
+```
+jsonObj를 json 파일로 만듭니다. json 파일을 pandas로 read 한 이후에 엑셀로 write 합니다.
+
+
 # Reference
 * https://www.youtube.com/watch?v=iLXNSjjWNtQ&t=1s
 * pyCharm 설치 : https://blockdmask.tistory.com/345
