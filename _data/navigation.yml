@@ -2,11 +2,3 @@
 main:
   - title: "Post"
     url: https://peterkimlab.github.io/
-  - title: "Android"
-    url: /android/
-  - title: "iOS"
-    url: /iOS/
-  - title: "Java"
-    url: /java/
-  - title: "Algorithm"
-    url: /algorithm/
